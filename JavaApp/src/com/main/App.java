@@ -3,6 +3,7 @@ package com.main;
 import com.p1.A;
 import com.p2.B;
 import com.p2.MyPerson;
+import com.p2.TransactionV2;
 
 public class App {  //controller class
 	public static void main(String[] args) { //main [ctrl + space]
@@ -23,7 +24,15 @@ public class App {  //controller class
 		 mypObj.display();
 		 mypObj.address();
 		 mypObj.myAge();
+		 
+		// Transaction transaction = new Transaction(); : Transaction class is abstract
+		 
+		 TransactionV2 tv2 = new TransactionV2();
+		 tv2.deposit();
+		 tv2.withdrawal();
 	}
+	
+	
 }
 
 //import A - since it is coming from outside the package com.main. : ctrl+shft+o
