@@ -1,0 +1,92 @@
+Incedo Training  Modules
+------------------------
+
+Core Java: 2 days
+	Classes and Objects 
+	Inheritance and POlymorphism 
+	Keywords: final, static, abstract 
+	Interfacing
+	Constructors
+	Encapsulation
+	Exception Handling 
+	String classes: String and StringBuilder
+ 	Arrays and Enumns
+	
+Java Collections: 1 day
+	List Interface: ArrayList, Vector, LinkedList 
+	Map Interface: HashMap, Hashtable, LinkedHashMap
+	Set Interface: TreeSet, HashSet 
+	Comparable and Comparator Interfaces 
+	Stack and Queue
+
+Java Streams and Lambda: 1 day
+	Lambda Expression and functional Interfaces
+	Predicate Interface 
+	Custom Functional Interface
+	Java Streams and Parellel Processing 
+	Stream Operations: filter, map, sort, compare, distinct, Collectors class and it methods. 
+
+Unit Testing and Mocking: 1 day
+	JUnit Testing 
+	Testing with Exceptions 
+	Mocking DB using Mockito 
+
+Database Programming: 1.5 days
+	DB Design Concepts: Normalization, Keys
+	SQL Queries: Manual Mapping, Nested Queries, Joins 
+	MongoDB: working with collections and documents 
+	Quering Mongo Documents 
+
+Hibernate ORM Framework: 2 days 
+	Entity Manager, Factory, Transactions, Persistence
+	HQL, Criteria Queries, JPQL 
+	
+Spring Boot REST API: 3.5 days
+	Designing REST APIs
+	Working with JPARepositories
+	Entity Relationships 
+	Advnace API techniques: Paging, sorting, DTOs 
+	API Security and GLobal Exception Handling 
+	
+
+GIT: 1/2 Day
+	Clone, add, commit, push, merge, pull
+	resolve conflicts
+
+HTML/CSS/JavaScript: 1/2 day
+	HTML5, CSS3
+	JavaScript Concepts: arrow functions, spread operators, array operations. 
+
+NodeJs: 2 days
+	Setting up Express server and MongoDB 
+	REST APIs 
+	API security with JWT 
+			
+ReactJs: 3 days
+	Components: class and functional
+	Working with JSX
+	States and Props 
+	React Router 
+	State management using Redux: store, action, reducer, connect 
+
+Spring Microservices: 2 days
+	Domain and Service based setup 
+	Service Discovery, Spring cloud gateway, Load Balancer 
+	Microservice APIs 
+
+Project Work: 1 day
+	Full Stack project with Backend APIs in Spring + Node and UI in ReactJs 
+ 
+Cloud DevOps: 1 day
+	Docker: creating image, pushing/pulling from docker hub 
+	Jenkins for CI/CD 
+	AWS: EC2, RDS 
+	Linux + Networking basics
+
+ ------------------
+Total: 22 days  
+
+Training Start Date: 7th March 
+Training End Date: 5th April 
+
+
