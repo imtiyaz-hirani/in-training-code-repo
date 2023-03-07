@@ -3,6 +3,7 @@ package com.main;
 import com.p1.A;
 import com.p2.B;
 import com.p2.MyPerson;
+import com.p2.StringOps;
 import com.p2.TransactionV2;
 
 public class App {  //controller class
@@ -30,6 +31,10 @@ public class App {  //controller class
 		 TransactionV2 tv2 = new TransactionV2();
 		 tv2.deposit();
 		 tv2.withdrawal();
+		 
+		 /* String OP */
+		 StringOps sop = new StringOps();
+		 System.out.println(sop.editString("harry potter,hogwards"));
 	}
 	
 	
