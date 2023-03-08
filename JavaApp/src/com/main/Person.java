@@ -1,6 +1,6 @@
 package com.main;
 
-public class Person {
+public class Person extends Object{
 	
 	public void display() {
 		System.out.println("display of person");
@@ -10,3 +10,10 @@ public class Person {
 		System.out.println("address of person");
 	}
 }
+/* 
+ Object
+ 	|
+ Person
+ 	|
+ MyPerson
+ */

@@ -2,7 +2,7 @@ package com.p1;
 
 public class Circle {
 	
-	final double pi = 3.14; 
+	final static double pi = 3.14; 
 	
 	public void computeArea(final double radius) {
 		System.out.println("Area is " + (this.pi * radius * radius)); 

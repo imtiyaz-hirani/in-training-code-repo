@@ -5,7 +5,8 @@ import com.model.Student;
 public class StudentService {
 
 	public int defineRating(final Student s1) {
-		return s1.age < 16?1:2;
+		System.out.println(s1); //memory location
+		return s1.getAge() < 16?1:2;
 	}
 
 }
