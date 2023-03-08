@@ -1,6 +1,6 @@
 package com.main;
 
-public interface Withdrawal extends BaseInterface {
+public abstract interface Withdrawal extends BaseInterface {
 	double limit = 10000; //public final static double limit = 10000
 	void validation(); //public abstract void validation()
 	void process(); 
