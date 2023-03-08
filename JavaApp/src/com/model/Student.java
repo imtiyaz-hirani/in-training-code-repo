@@ -1,6 +1,6 @@
 package com.model;
 
-/* encapusulated Student class*/
+/* encapsulated Student class*/
 public class Student extends Object{
 	private String name;
 	private int age;
