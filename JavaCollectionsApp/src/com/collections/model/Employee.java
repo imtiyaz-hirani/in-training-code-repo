@@ -1,6 +1,6 @@
 package com.collections.model;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
 	private int id;
 	private String name;
 	private String city; 
@@ -107,7 +107,23 @@ public class Employee {
 		if (Double.doubleToLongBits(salary) != Double.doubleToLongBits(other.salary))
 			return false;
 		return true;
-	} 
-	
+	}
+
+	@Override
+	public int compareTo(Employee e2) {
+		if(this.getSalary() > e2.getSalary())   //this is representing e1
+			return 1;
+		if(this.getSalary() < e2.getSalary())  
+			return -1;
+		 
+		return 0;
+	}
+
+	 
+	/* [e1,e2]
+	 -ve: e1 < e2 = [e1,e2]
+	 0: e1 == e2 = [e1,e2]
+	 +ve: e1 > e2 = [e2,e1]
+	 */
 	
 }
