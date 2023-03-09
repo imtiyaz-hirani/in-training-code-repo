@@ -10,7 +10,7 @@ public class TreeSetApp {
 		set.add(8);
 		set.add(1);
 		set.add(7);
-		
+		set.add(null);
 		/* Set, by default, is a sorted collection */
 		System.out.println(set);//[1, 4, 7, 8]
 		

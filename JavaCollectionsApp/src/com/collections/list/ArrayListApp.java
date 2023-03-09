@@ -1,7 +1,7 @@
 package com.collections.list;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ArrayListApp {
@@ -9,11 +9,12 @@ public class ArrayListApp {
 		/* Instead of Pure Object, prefer Polymorphic object */
 		// ArrayList list = new ArrayList();
 		
-		List<Integer> list = new ArrayList<>();
+		List<Integer> list = new LinkedList<>();
 		list.add(3);
 		list.add(2);
 		list.add(6);
 		list.add(1);
+		list.add(null);
 		
 		System.out.println(list); //[3, 2, 6, 1]
 		

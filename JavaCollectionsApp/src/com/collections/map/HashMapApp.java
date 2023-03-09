@@ -1,11 +1,11 @@
 package com.collections.map;
 
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 public class HashMapApp {
 	public static void main(String[] args) {
-		Map<Integer,String> map = new HashMap<>();
+		Map<Integer,String> map = new Hashtable<>();
 		map.put(1, "apple");
 		map.put(2, "mango");
 		map.put(3, "banana");
