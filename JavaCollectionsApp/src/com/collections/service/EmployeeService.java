@@ -3,6 +3,8 @@ package com.collections.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.collections.model.Employee;
 
@@ -39,6 +41,14 @@ public class EmployeeService {
 		/* Use Parellel Programming with Streams and Lambda expressions */
 		
 		return filteredList;
+	}
+
+	public List<String> getDistinctCities(List<Employee> list) {
+		Set<String> set = new TreeSet<>();
+		for(Employee e : list) {
+			set.add(e.getCity());
+		}
+		return new ArrayList<String>(set);
 	}
 
 }

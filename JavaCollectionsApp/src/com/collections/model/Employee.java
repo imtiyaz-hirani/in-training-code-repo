@@ -1,5 +1,7 @@
 package com.collections.model;
 
+import java.util.Comparator;
+
 public class Employee implements Comparable<Employee>{
 	private int id;
 	private String name;
