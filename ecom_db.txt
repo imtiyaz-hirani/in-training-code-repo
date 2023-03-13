@@ -196,3 +196,55 @@ insert into customer_product values (3,7,'2023-03-02',1);
 
 insert into review values (1,'awesome product',4.5,1,1),(2,'Great product',4.4,6,1),
 (3,'reasonable price',4,5,2), (4,'Not happy',2.5,2,3),(5,'very happy',4.3,7,3);
+
+
+Queries
+======
+Q. Display Customer info, that have purchased products and have given ratings more than 4. 
+
+mysql> select distinct c.name, c.city
+    -> from customer c join customer_product cp on c.id=cp.customer_id join product p on cp.product_id=p.id join review r on p.id=r.product_id
+    -> where r.rating > 4;
++------------------+--------+
+| name             | city   |
++------------------+--------+
+| harry potter     | london |
+| hermione granger | london |
++------------------+--------+
+
+
+Q. Display number of customers that have bought products sold by each vendor in DESC order. 
+
+mysql> select count(c.id), v.name
+    -> from customer c join customer_product cp on c.id=cp.customer_id join product p on cp.product_id=p.id right join vendor v on p.vendor_id=v.id
+    -> group by v.name
+    -> order by count(c.id) DESC;
++-------------+-----------------+
+| count(c.id) | name            |
++-------------+-----------------+
+|           3 | ABC electronics |
+|           2 | PQR electronics |
+|           2 | XYZ electronics |
++-------------+-----------------+
+
+Q. Display num of customers having bought featured products for each category that have given atleast 1 review. 
+
+mysql> select count(cp.customer_id), c.name from customer_product cp join product p on p.id = cp.product_id join category c on p.category_id = c.id join featured f on f.id = p.featured_id where f.is_featured = 1 and cp.customer_id in (select customer_id from review) group by c.name;
++-----------------------+-------------+
+| count(cp.customer_id) | name        |
++-----------------------+-------------+
+|                     2 | head phones |
+|                     2 | laptop      |
+|                     1 | mobile      |
++-----------------------+-------------+
+
+Q. Display customer that have purchased product stored at all the warehouses. 
+
+mysql> select customer_id from customer_product where product_id IN (select product_id from product_warehouse group by product_id having count(product_id) = (select count(id) from warehouse));
++-------------+
+| customer_id |
++-------------+
+|           1 |
++-------------+
+
+
