@@ -158,3 +158,41 @@ CREATE TABLE IF NOT EXISTS `myincedotestdb`.`product_warehouse` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+DML - inserts
+=============
+
+mysql> insert into customer(name,city) values ('harry potter','london')
+    -> ,('ronald weasley','kent'),
+    -> ('hermione granger','london');
+
+insert into category(id,name,priority) values (1,'mobile',1),(2,'laptop',2),(3,'head phones',3);
+
+ insert into featured values (1,1),(2,0);
+
+ insert into vendor values (1,'ABC electronics','madrid');
+insert into vendor values (2,'PQR electronics','london');
+insert into vendor values (3,'XYZ electronics','paris');
+
+insert into product values (1,'Iphone 8',2000,'This is apple phone',1,1,1);
+ insert into product values (2,'Samsung Z10',1600,'This is samsung phone',1,2,2);
+insert into product values (3,'Oppo Mobile A77',1200,'This is oppo phone',1,2,3);
+insert into product values (4,'Dell Latitude',2500,'This is dell laptop',2,2,1);
+insert into product values (5,'MAC Air',2700,'This is apple laptop',2,2,2);
+insert into product values (6,'HP Laptop',2200,'This is HP laptop',2,1,3);
+insert into product values (7,'Senhiesers HP',200,'This is sen headphone',3,1,1);
+
+ insert into warehouse values (1,'some address','eagle'),(2,'some address','rabbit');
+ insert into product_warehouse values (1,1,3),(1,2,2),(2,1,4),(3,2,2),(4,1,2),(4,2,1),(5,1,2),(6,2,3),(7,1,7);
+
+insert into customer_product values (1,1,'2023-01-02',1);
+insert into customer_product values (1,7,'2023-01-02',1);
+ insert into customer_product values (1,6,'2023-02-02',1);
+insert into customer_product values (2,5,'2023-02-02',1);
+ insert into customer_product values (3,2,'2023-03-02',2);
+insert into customer_product values (3,6,'2023-03-02',1);
+insert into customer_product values (3,7,'2023-03-02',1);
+
+insert into review values (1,'awesome product',4.5,1,1),(2,'Great product',4.4,6,1),
+(3,'reasonable price',4,5,2), (4,'Not happy',2.5,2,3),(5,'very happy',4.3,7,3);
