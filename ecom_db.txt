@@ -1,0 +1,160 @@
+drop database myincedotestdb;
+create database myincedotestdb;
+use myincedotestdb;
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`customer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`customer` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NULL,
+  `city` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`category`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`category` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `priority` INT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`featured`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`featured` (
+  `id` INT NOT NULL,
+  `is_featured` TINYINT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`vendor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`vendor` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `city` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`product` (
+  `id` INT NOT NULL,
+  `title` VARCHAR(45) NULL,
+  `price` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  `category_id` INT NOT NULL,
+  `featured_id` INT NOT NULL,
+  `vendor_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `category_id`, `vendor_id`),
+  INDEX `fk_product_category1_idx` (`category_id` ASC) ,
+  INDEX `fk_product_featured1_idx` (`featured_id` ASC) ,
+  INDEX `fk_product_vendor1_idx` (`vendor_id` ASC) ,
+  CONSTRAINT `fk_product_category1`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `myincedotestdb`.`category` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_product_featured1`
+    FOREIGN KEY (`featured_id`)
+    REFERENCES `myincedotestdb`.`featured` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_product_vendor1`
+    FOREIGN KEY (`vendor_id`)
+    REFERENCES `myincedotestdb`.`vendor` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`review`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`review` (
+  `id` INT NOT NULL,
+  `rtext` VARCHAR(555) NULL,
+  `rating` DOUBLE NULL,
+  `product_id` INT NOT NULL,
+  `customer_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `product_id`),
+  INDEX `fk_review_product1_idx` (`product_id` ASC) ,
+  INDEX `fk_review_customer1_idx` (`customer_id` ASC) ,
+  CONSTRAINT `fk_review_product1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `myincedotestdb`.`product` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_review_customer1`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `myincedotestdb`.`customer` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`warehouse`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`warehouse` (
+  `id` INT NOT NULL,
+  `address` VARCHAR(255) NULL,
+  `sign_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`customer_product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`customer_product` (
+  `customer_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `date_of_purchase` DATE NULL,
+  `qty_of_purchase` INT NULL,
+  PRIMARY KEY (`customer_id`, `product_id`),
+  INDEX `fk_customer_has_product_product1_idx` (`product_id` ASC) ,
+  INDEX `fk_customer_has_product_customer_idx` (`customer_id` ASC) ,
+  CONSTRAINT `fk_customer_has_product_customer`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `myincedotestdb`.`customer` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_customer_has_product_product1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `myincedotestdb`.`product` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `myincedotestdb`.`product_warehouse`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myincedotestdb`.`product_warehouse` (
+  `product_id` INT NOT NULL,
+  `warehouse_id` INT NOT NULL,
+  `qty` INT NULL,
+  PRIMARY KEY (`product_id`, `warehouse_id`),
+  INDEX `fk_product_has_warehouse_warehouse1_idx` (`warehouse_id` ASC) ,
+  INDEX `fk_product_has_warehouse_product1_idx` (`product_id` ASC) ,
+  CONSTRAINT `fk_product_has_warehouse_product1`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `myincedotestdb`.`product` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_product_has_warehouse_warehouse1`
+    FOREIGN KEY (`warehouse_id`)
+    REFERENCES `myincedotestdb`.`warehouse` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
